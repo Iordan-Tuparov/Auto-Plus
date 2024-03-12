@@ -1,0 +1,90 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 90px;
+  background-color: rgb(28, 49, 68);
+  box-shadow: 0 4px 2px -1px gray;
+}
+
+header .left-ul {
+  font-size: 27px;
+  padding-left: 1.7em;
+}
+
+header .left-ul li {
+  list-style: none;
+}
+
+header .left-ul a {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+}
+
+header .left-ul a:hover {
+  text-decoration: underline;
+  color: rgb(108, 170, 225);
+}
+
+header .center-ul {
+  display: flex;
+  list-style: none;
+  gap: 2em;
+}
+
+header .center-ul li {
+  border: 2px solid white;
+  border-radius: 0.3em;
+  padding: 0.3em 0.7em;
+  font-size: 19px;
+}
+
+header .center-ul li:hover {
+  border-color: rgb(108, 170, 225);
+}
+
+header .center-ul a {
+  text-decoration: none;
+  color: white;
+}
+
+header .center-ul a:hover {
+  color: rgb(108, 170, 225);
+}
+
+header .center-ul i {
+  padding-right: 5px;
+}
+
+header .right-ul {
+  display: flex;
+  list-style: none;
+  gap: 2em;
+  padding-right: 3em;
+}
+
+header .right-ul li {
+  border: 2px solid white;
+  border-radius: 0.3em;
+  padding: 0.3em 0.7em;
+  font-size: 19px;
+}
+
+header .right-ul li:hover {
+  border-color: rgb(108, 170, 225);
+}
+
+header .right-ul a {
+  text-decoration: none;
+  color: white;
+}
+
+header .right-ul a:hover {
+  color: rgb(108, 170, 225);
+}
+
+header .right-ul i {
+  padding-right: 5px;
+}

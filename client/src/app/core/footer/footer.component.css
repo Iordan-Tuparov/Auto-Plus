@@ -1,0 +1,32 @@
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 56px;
+    background-color: rgb(28, 49, 68);
+}
+
+footer p {
+    color: white;
+    font-size: 19px;
+}
+
+footer .footer-icons {
+    display: flex;
+    gap: 1em;
+    font-size: 19px;
+    padding-left: 1em;
+}
+
+footer .footer-icons a {
+    color: white;
+    border: 2px solid white;
+    padding: 0.2em 0.2em;
+    border-radius: 0.3em;
+}
+
+footer .footer-icons a:hover {
+    border-color: rgb(108, 170, 225);;
+    color: rgb(108, 170, 225);;
+}

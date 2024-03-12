@@ -1,0 +1,44 @@
+/* Reset CSS */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+/* Typography */
+
+html {
+  font: 14px/1.5 Helvetica, sans-serif;
+}
+
+h1 {
+  font-size: 3em;
+}
+h2 {
+  font-size: 2.5em;
+}
+h3 {
+  font-size: 2em;
+}
+h4 {
+  font-size: 1.6em;
+}
+h5 {
+  font-size: 1.4em;
+}
+h6 {
+  font-size: 1em;
+}
