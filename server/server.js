@@ -1521,7 +1521,7 @@
         sessions: {},
     };
     var seedData = {
-        sunglasses: {},
+        cars: {},
         likes: {},
         comments: {},
     };
