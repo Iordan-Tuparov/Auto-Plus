@@ -88,3 +88,6 @@ header .right-ul a:hover {
 header .right-ul i {
   padding-right: 5px;
 }
+.logout-btn {
+  cursor: pointer;
+}

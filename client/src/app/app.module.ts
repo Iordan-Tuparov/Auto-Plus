@@ -9,6 +9,7 @@ import { CoreModule } from './core/core.module';
 import { UserModule } from './user/user.module';
 import { CarsModule } from './cars/cars.module';
 import { UserRoutingModule } from './user/user-routing.module';
+import { appInterceptorProvider } from './app.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +22,7 @@ import { UserRoutingModule } from './user/user-routing.module';
     CarsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [appInterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
