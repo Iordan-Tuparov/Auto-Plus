@@ -2,7 +2,9 @@ const express = require("express");
 
 const { PORT } = require("./config/env");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 const router = require("./routes");
+const { auth } = require("./middlewares/authMiddleware");
 
 let app = express();
 
@@ -15,6 +17,8 @@ app.use(
         credentials: true,
     })
 );
+app.use(cookieParser());
+app.use(auth);
 app.use(router);
 
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
