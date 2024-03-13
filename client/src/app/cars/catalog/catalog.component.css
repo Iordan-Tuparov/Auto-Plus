@@ -1,0 +1,59 @@
+.wrapper {
+  width: 100%;
+  min-height: 83vh;
+  background-image: url(../../assets/images/catalogImage.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.card-wrapper {
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  gap: 2em;
+  flex-wrap: wrap;
+}
+
+.car-card {
+  text-align: center;
+  width: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #757070;
+  color: white;
+  transition: transform 0.3s;
+}
+
+.car-card h3 {
+  font-family: italic;
+}
+
+.car-card:hover {
+  transform: translateY(-5px);
+}
+
+.car-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.more-info-btn {
+  display: block;
+  text-decoration: none;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 0 0 10px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.more-info-btn:hover {
+  background-color: #0056b3;
+}

@@ -1,0 +1,88 @@
+.wrapper {
+  width: 100%;
+  min-height: 83vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../../assets/images/detailPhoto.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.detail-card-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  background: transparent;
+  border: 2px solid white;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
+  width: 1000px;
+  height: 450px;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.detail-card-wrapper .media {
+  width: 50%;
+  height: 100%;
+  border-right: 2px solid white;
+}
+
+.detail-card-wrapper .media img {
+  height: 100%;
+}
+
+.detail-card-wrapper .card-information {
+  width: 50%;
+  height: 100%;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 20px;
+  color: white;
+}
+
+.detail-card-wrapper .card-information p span {
+  font-weight: bold;
+}
+
+.detail-card-wrapper .card-information .detail-btn {
+  display: flex;
+  gap: 2em;
+}
+
+.detail-card-wrapper .card-information .detail-btn a {
+  text-decoration: none;
+}
+
+.detail-card-wrapper .card-information .detail-btn a:first-child {
+  padding: 0.3em 1.5em;
+  color: white;
+  background-color: rgb(21, 21, 206);
+  border: 2px solid white;
+  border-radius: 15px;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.detail-card-wrapper .card-information .detail-btn a:first-child:hover {
+  background-color: #153fdc;
+  border-color: #153fdc;
+}
+
+.detail-card-wrapper .card-information .detail-btn a:last-child {
+  padding: 0.3em 1.5em;
+  color: white;
+  background-color: rgb(143, 11, 11);
+  border: 2px solid white;
+  border-radius: 15px;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.detail-card-wrapper .card-information .detail-btn a:last-child:hover {
+  background-color: #8f0b0b;
+  border-color: #8f0b0b;
+}
