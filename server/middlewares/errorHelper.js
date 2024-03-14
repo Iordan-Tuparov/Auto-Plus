@@ -7,7 +7,5 @@ exports.errorHelper = (error) => {
     message = error.message;
   }
 
-  console.log(message);
-
   return message;
 };

@@ -2,6 +2,7 @@ const router = require("express").Router();
 
 const { SESSION_COOKIE_NAME } = require("../config/env");
 const authService = require("../services/authService");
+const { errorHelper } = require("../middlewares/errorHelper");
 
 router.post("/login", async (req, res) => {
     try {
@@ -22,7 +23,15 @@ router.post("/register", async (req, res) => {
 
         res.status(200).json({ email: user.email, _id: user._id });
     } catch (error) {
-        res.status(404).json({ Error: "SomeError" });
+        if (error.name === "MongoServerError" && error.code === 11000) {
+            return res
+                .status(400)
+                .json({ error: "Email is already registered" });
+        }
+
+        res.status(500).json({
+            error: "An error occurred while registering the user",
+        });
     }
 });
 
