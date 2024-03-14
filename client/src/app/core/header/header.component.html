@@ -31,8 +31,15 @@
         ><i class="fa-solid fa-registered"></i>Register</a
       >
     </li>
+
+    <li *ngIf="!isLoggedIn">
+      <a href="#">{{ email }}</a>
+    </li>
+
     <li (click)="logout()" *ngIf="!isLoggedIn">
-      <a class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+      <a class="logout-btn"
+        ><i class="fa-solid fa-right-from-bracket"></i>Logout</a
+      >
     </li>
   </ul>
 </header>

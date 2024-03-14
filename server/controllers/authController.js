@@ -23,6 +23,7 @@ router.post("/register", async (req, res) => {
 
         res.status(200).json({ email: user.email, _id: user._id });
     } catch (error) {
+        console.error("Registration error:", error); // Log the error
         if (error.name === "MongoServerError" && error.code === 11000) {
             return res
                 .status(400)

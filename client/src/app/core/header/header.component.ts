@@ -14,6 +14,10 @@ export class HeaderComponent {
     return this.userService.isLoggin;
   }
 
+  get email(): string {
+    return this.userService.user?.email || '';
+  }
+
   logout(): void {
     this.userService.logout().subscribe({
       next: () => {

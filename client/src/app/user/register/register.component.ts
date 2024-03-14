@@ -45,7 +45,9 @@ export class RegisterComponent {
     }
 
     const email = this.registerForm.get('email')?.value;
-    const password = this.registerForm.get('password')?.value;
+    const password = this.registerForm.get('passGroup')?.get('password')?.value;
+
+    console.log(email, password);
 
     this.userService.register(email, password).subscribe(
       () => {
