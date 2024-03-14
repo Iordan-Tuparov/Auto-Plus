@@ -4,6 +4,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { emailValidator } from 'src/app/utils/email.validator';
 import { EMAIL_DOMAINS } from 'src/app/constants';
+import { matchPasswordsValidator } from 'src/app/utils/match-passwords-validator';
 
 @Component({
   selector: 'app-register',
@@ -20,9 +21,20 @@ export class RegisterComponent {
   ) {
     this.registerForm = this.fb.group({
       email: ['', Validators.required, emailValidator(EMAIL_DOMAINS)],
-      password: ['', Validators.required],
-      repeatPassword: ['', Validators.required],
+      passGroup: this.fb.group(
+        {
+          password: ['', [Validators.required]],
+          repeatPassword: ['', [Validators.required]],
+        },
+        {
+          validators: [matchPasswordsValidator('password', 'repeatPassword')],
+        }
+      ),
     });
+  }
+
+  get passGroup() {
+    return this.registerForm.get('passGroup');
   }
 
   serverError: string = '';
