@@ -26,7 +26,7 @@ router.post("/register", async (req, res) => {
         if (error.name === "MongoServerError" && error.code === 11000) {
             return res
                 .status(400)
-                .json({ error: "Email is already registered" });
+                .json({ error: "Email is already registered!" });
         }
 
         res.status(500).json({
