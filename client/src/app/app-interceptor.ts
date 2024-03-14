@@ -20,9 +20,6 @@ export class AppInterceptor implements HttpInterceptor {
     if (req.url.startsWith('/api')) {
       request = req.clone({
         url: req.url.replace('/api', API_URL),
-      });
-
-      request = request.clone({
         withCredentials: true,
       });
     }
