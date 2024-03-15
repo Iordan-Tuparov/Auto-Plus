@@ -10,9 +10,10 @@ import { UserModule } from './user/user.module';
 import { CarsModule } from './cars/cars.module';
 import { UserRoutingModule } from './user/user-routing.module';
 import { appInterceptorProvider } from './app.interceptor';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NotFoundComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
