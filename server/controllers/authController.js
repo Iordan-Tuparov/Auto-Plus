@@ -2,15 +2,19 @@ const router = require("express").Router();
 
 const { SESSION_COOKIE_NAME } = require("../config/env");
 const authService = require("../services/authService");
-const { errorHelper } = require("../middlewares/errorHelper");
 
 router.post("/login", async (req, res) => {
     try {
         const user = await authService.login(req.body);
+        const token = await authService.createToken(user);
 
-        res.status(200).json(user);
+        res.cookie(SESSION_COOKIE_NAME, token);
+
+        res.status(200).json({ email: user.email, _id: user._id });
     } catch (error) {
-        res.status(404).json({ Error: "SomeError" });
+        res.status(500).json({
+            error: error.message,
+        });
     }
 });
 

@@ -10,9 +10,6 @@ export function matchPasswordsValidator(
     const areMatching =
       passwordFormControl?.value == rePasswordFormControl?.value;
 
-      console.log(areMatching);
-      
-
     return areMatching ? null : { matchPasswordsValidator: true };
   };
 }

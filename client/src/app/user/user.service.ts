@@ -37,6 +37,12 @@ export class UserService implements OnDestroy {
       .pipe(tap((user) => this.user$$.next(user)));
   }
 
+  login(email: String, password: String) {
+    return this.http
+      .post<User>('/api/auth/login', { email, password })
+      .pipe(tap((user) => this.user$$.next(user)));
+  }
+
   logout() {
     return this.http
       .post<User>('/api/auth/logout', {})

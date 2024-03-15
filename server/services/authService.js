@@ -22,12 +22,6 @@ exports.register = async (userData) => {
 };
 
 exports.login = async ({ email, password }) => {
-    if (!email || !password) {
-        throw {
-            message: "Email and password is require!",
-        };
-    }
-
     const user = await User.findOne({ email: email });
 
     if (!user) {
