@@ -13,11 +13,7 @@ export class UserService implements OnDestroy {
   user: User | undefined;
 
   get isLoggin(): boolean {
-    if (this.user === undefined) {
-      return true;
-    } else {
-      return false;
-    }
+    return !!this.user;
   }
 
   Subscription: Subscription;

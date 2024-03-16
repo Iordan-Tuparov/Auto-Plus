@@ -6,6 +6,7 @@ import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
 import { RouterModule } from '@angular/router';
 import { CarRoutingModule } from './cars.routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { CarRoutingModule } from './cars.routing.module';
     DetailsComponent,
     EditComponent,
   ],
-  imports: [CommonModule, RouterModule, CarRoutingModule],
+  imports: [CommonModule, RouterModule, CarRoutingModule, ReactiveFormsModule],
   exports: [CatalogComponent, CreateComponent, DetailsComponent, EditComponent],
 })
 export class CarsModule {}

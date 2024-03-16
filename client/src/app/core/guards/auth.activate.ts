@@ -1,32 +1,34 @@
 import { Injectable } from '@angular/core';
-
 import {
-  ActivatedRouteSnapshot,
   CanActivate,
+  ActivatedRouteSnapshot,
   RouterStateSnapshot,
-  UrlTree,
   Router,
 } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
-import { Observable } from 'rxjs';
-import { UserService } from 'src/app/user/user.service';
-
-@Injectable({ providedIn: 'root' })
+@Injectable({
+  providedIn: 'root',
+})
 export class AuthActivate implements CanActivate {
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private cookieService: CookieService, private router: Router) {}
 
   canActivate(
-    route: ActivatedRouteSnapshot,
+    next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ):
-    | boolean
-    | UrlTree
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree> {
-    if (this.userService.isLoggin) {
-      return this.router.parseUrl('/not-found');
-    } else {
+  ): boolean {
+    // Check if the authentication cookie exists
+    const isAuthenticated = this.cookieService.check('user-session');
+
+    console.log(isAuthenticated);
+    
+
+    if (!isAuthenticated) {
       return true;
+    } else {
+      // If not authenticated, redirect to the not-found page
+      this.router.navigate(['/not-found']);
+      return false;
     }
   }
 }

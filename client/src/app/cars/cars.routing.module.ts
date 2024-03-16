@@ -5,10 +5,9 @@ import { CreateComponent } from './create/create.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
-import { AuthActivate } from '../core/guards/auth.activate';
 
 const routes: Routes = [
-  { path: 'create', component: CreateComponent, canActivate: [AuthActivate] },
+  { path: 'create', component: CreateComponent },
   { path: 'catalog', component: CatalogComponent },
   { path: 'details/:id', component: DetailsComponent },
   { path: 'edit/:id', component: EditComponent },

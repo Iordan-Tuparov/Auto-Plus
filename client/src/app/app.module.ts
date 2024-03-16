@@ -12,6 +12,7 @@ import { UserRoutingModule } from './user/user-routing.module';
 import { appInterceptorProvider } from './app.interceptor';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [AppComponent, NotFoundComponent, AuthenticateComponent],
@@ -24,7 +25,7 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
     CarsModule,
     HttpClientModule,
   ],
-  providers: [appInterceptorProvider],
+  providers: [appInterceptorProvider, CookieService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
