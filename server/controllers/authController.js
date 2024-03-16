@@ -41,17 +41,17 @@ router.post("/register", async (req, res) => {
 });
 
 router.get("/user", async (req, res) => {
-    const userId = req.user?._id;
+    try {
+        const userId = req.user?._id;
 
-    const user = await authService.getUser(userId);
+        const user = await authService.getUser(userId);
 
-    if (!user) {
+        const validUser = { email: user.email, _id: String(user._id) };
+
+        res.status(200).json(validUser);
+    } catch (error) {
         return res.status(404).json({ error: "User not found" });
     }
-
-    const validUser = { email: user.email, _id: String(user._id) };
-
-    res.status(200).json(validUser);
 });
 
 router.post("/logout", (req, res) => {

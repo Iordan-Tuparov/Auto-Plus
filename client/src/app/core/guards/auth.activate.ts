@@ -17,16 +17,11 @@ export class AuthActivate implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    // Check if the authentication cookie exists
     const isAuthenticated = this.cookieService.check('user-session');
-
-    console.log(isAuthenticated);
-    
 
     if (!isAuthenticated) {
       return true;
     } else {
-      // If not authenticated, redirect to the not-found page
       this.router.navigate(['/not-found']);
       return false;
     }
