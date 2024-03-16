@@ -5,6 +5,7 @@ import { CreateComponent } from './create/create.component';
 import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
 import { RouterModule } from '@angular/router';
+import { CarRoutingModule } from './cars.routing.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,7 @@ import { RouterModule } from '@angular/router';
     DetailsComponent,
     EditComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, CarRoutingModule],
   exports: [CatalogComponent, CreateComponent, DetailsComponent, EditComponent],
 })
 export class CarsModule {}
