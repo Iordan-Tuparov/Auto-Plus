@@ -4,6 +4,8 @@ const { SALT, SECRET } = require("../config/env");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
+exports.getUser = async (userId) => User.findById(userId);
+
 exports.register = async (userData) => {
     const hashedPassword = await bcrypt.hash(userData.password, SALT);
 
