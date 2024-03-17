@@ -1,13 +1,12 @@
 <div class="wrapper">
   <div class="card-wrapper">
-    <div class="car-card">
-      <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs2UarjNW5qg5uGs0j2GEwoxTGdJDZBkH9BA&usqp=CAU"
-        alt="Car 1"
-      />
+    <div class="car-card" *ngFor="let car of cars">
+      <img src="{{ car.imageUrl }}" alt="Car 1" />
       <div class="car-details">
-        <h3>Lambo</h3>
-        <a href="/cars/details/1" class="more-info-btn">More Info</a>
+        <h3>{{ car.model }}</h3>
+        <a [routerLink]="['/cars/details', car._id]" class="more-info-btn"
+          >More Info</a
+        >
       </div>
     </div>
   </div>

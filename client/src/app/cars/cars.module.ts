@@ -16,6 +16,5 @@ import { ReactiveFormsModule } from '@angular/forms';
     EditComponent,
   ],
   imports: [CommonModule, RouterModule, CarRoutingModule, ReactiveFormsModule],
-  exports: [CatalogComponent, CreateComponent, DetailsComponent, EditComponent],
 })
 export class CarsModule {}

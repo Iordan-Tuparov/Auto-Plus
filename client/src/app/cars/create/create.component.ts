@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CarsService } from '../cars.service';
+import { Router } from '@angular/router';
+import { urlValidate } from 'src/app/utils/url.validator';
 
 @Component({
   selector: 'app-create',
@@ -9,17 +12,33 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class CreateComponent {
   createForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private carsService: CarsService,
+    private router: Router
+  ) {
     this.createForm = this.fb.group({
-      model: [''],
-      year: [''],
-      horsePower: [''],
-      imageUrl: [''],
-      information: [''],
+      model: ['', [Validators.required]],
+      year: ['', [Validators.required]],
+      horsePower: ['', [Validators.required]],
+      imageUrl: ['', [Validators.required], urlValidate('imageUrl')],
+      information: ['', [Validators.required]],
     });
   }
 
   createSubmit(): void {
-    console.log(this.createForm.value);
+    if (this.createForm.invalid) {
+      return;
+    }
+
+    const model = this.createForm.get('model')?.value;
+    const year = this.createForm.get('year')?.value;
+    const horsePower = this.createForm.get('horsePower')?.value;
+    const imageUrl = this.createForm.get('imageUrl')?.value;
+    const information = this.createForm.get('information')?.value;
+
+    this.carsService
+      .createCar(model, year, horsePower, imageUrl, information)
+      .subscribe(() => this.router.navigate(['/cars/catalog']));
   }
 }

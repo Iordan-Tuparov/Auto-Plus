@@ -87,3 +87,10 @@
   color: white;
   padding: 11px 0 0 15px;
 }
+
+.error {
+  text-align: center;
+  font-size: 17px;
+  font-weight: bold;
+  color: red;
+}

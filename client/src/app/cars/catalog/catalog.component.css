@@ -9,6 +9,8 @@
 
 .card-wrapper {
   padding: 2em;
+  display: flex;
+  gap: 0.8em;
 }
 
 .car-card {

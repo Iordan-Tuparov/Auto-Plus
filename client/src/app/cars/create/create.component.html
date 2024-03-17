@@ -5,11 +5,24 @@
       <div class="input-box">
         <input type="text" placeholder="Model" formControlName="model" />
         <i class="fa-solid fa-car"></i>
+        <ng-container *ngIf="createForm.get('model')?.touched">
+          <p
+            class="error"
+            *ngIf="createForm.get('model')?.errors?.['required']"
+          >
+            Model is required!
+          </p>
+        </ng-container>
       </div>
 
       <div class="input-box">
         <input type="text" placeholder="Year" formControlName="year" />
         <i class="fa-solid fa-calendar-days"></i>
+        <ng-container *ngIf="createForm.get('year')?.touched">
+          <p class="error" *ngIf="createForm.get('year')?.errors?.['required']">
+            Year is required!
+          </p>
+        </ng-container>
       </div>
 
       <div class="input-box">
@@ -19,11 +32,33 @@
           formControlName="horsePower"
         />
         <i class="fa-solid fa-horse-head"></i>
+        <ng-container *ngIf="createForm.get('horsePower')?.touched">
+          <p
+            class="error"
+            *ngIf="createForm.get('horsePower')?.errors?.['required']"
+          >
+            Horse power is required!
+          </p>
+        </ng-container>
       </div>
 
       <div class="input-box">
         <input type="text" placeholder="Image URL" formControlName="imageUrl" />
         <i class="fa-solid fa-image"></i>
+        <ng-container *ngIf="createForm.get('imageUrl')?.touched">
+          <p
+            class="error"
+            *ngIf="createForm.get('imageUrl')?.errors?.['required']"
+          >
+            imageUrl is required!
+          </p>
+          <p
+            class="error"
+            *ngIf="createForm.get('imageUrl')?.errors?.['urlValidate']"
+          >
+            Url is Invalid!
+          </p>
+        </ng-container>
       </div>
 
       <div class="input-box">
@@ -32,9 +67,26 @@
           formControlName="information"
         ></textarea>
         <i class="fa-solid fa-info"></i>
+        <ng-container *ngIf="createForm.get('information')?.touched">
+          <p
+            class="error"
+            *ngIf="createForm.get('information')?.errors?.['required']"
+          >
+            Information is required!
+          </p>
+        </ng-container>
       </div>
 
-      <button type="submit" class="btn">Create</button>
+      <button
+        type="submit"
+        class="btn"
+        [disabled]="this.createForm.invalid"
+        [style]="{
+          backgroundColor: this.createForm.invalid ? 'grey' : ''
+        }"
+      >
+        Create
+      </button>
     </form>
   </div>
 </div>
