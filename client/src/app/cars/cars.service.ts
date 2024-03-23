@@ -13,7 +13,8 @@ export class CarsService {
     year: string,
     horsePower: string,
     imageUrl: string,
-    information: string
+    information: string,
+    price: string
   ) {
     return this.http.post<Car>('/api/cars/create', {
       model,
@@ -21,10 +22,15 @@ export class CarsService {
       horsePower,
       imageUrl,
       information,
+      price,
     });
   }
 
   getAllCars() {
     return this.http.get<Car[]>('/api/cars/all-cars');
+  }
+
+  getOneCar(id: string) {
+    return this.http.get<Car>(`/api/cars/get-one/${id}`);
   }
 }

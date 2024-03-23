@@ -24,4 +24,14 @@ router.get("/all-cars", async (req, res) => {
     }
 });
 
+router.get("/get-one/:id", async (req, res) => {
+    try {
+        const currentCar = await carService.getOne(req.params.id);
+
+        res.status(200).json(currentCar);
+    } catch (error) {
+        res.status(404);
+    }
+});
+
 module.exports = router;

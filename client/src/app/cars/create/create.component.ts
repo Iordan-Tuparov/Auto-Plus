@@ -23,6 +23,7 @@ export class CreateComponent {
       horsePower: ['', [Validators.required]],
       imageUrl: ['', [Validators.required], urlValidate('imageUrl')],
       information: ['', [Validators.required]],
+      price: ['', [Validators.required]],
     });
   }
 
@@ -36,9 +37,10 @@ export class CreateComponent {
     const horsePower = this.createForm.get('horsePower')?.value;
     const imageUrl = this.createForm.get('imageUrl')?.value;
     const information = this.createForm.get('information')?.value;
+    const price = this.createForm.get('price')?.value;
 
     this.carsService
-      .createCar(model, year, horsePower, imageUrl, information)
+      .createCar(model, year, horsePower, imageUrl, information, price)
       .subscribe(() => this.router.navigate(['/cars/catalog']));
   }
 }

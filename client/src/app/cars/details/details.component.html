@@ -1,18 +1,15 @@
 <div class="wrapper">
   <div class="detail-card-wrapper">
     <div class="media">
-      <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs2UarjNW5qg5uGs0j2GEwoxTGdJDZBkH9BA&usqp=CAU"
-        alt="photo"
-      />
+      <img src="{{ currentCar.imageUrl }}" alt="photo" />
     </div>
 
     <div class="card-information">
-      <p><span>Model: </span>Some Model here</p>
-      <p><span>Year: </span>Some Year here</p>
-      <p><span>Information: </span>Some Info here</p>
-      <p><span>Horses Power: </span>Some HP here</p>
-      <p><span>Price: </span>Some price here</p>
+      <p><span>Model: </span>{{currentCar.model}}</p>
+      <p><span>Year: </span>{{currentCar.year}}</p>
+      <p><span>Information: </span>{{currentCar.information}}</p>
+      <p><span>Horses Power: </span>{{currentCar.horsePower}}</p>
+      <p><span>Price: </span>{{currentCar.price}}</p>
       <div class="detail-btn">
         <a routerLink="/cars/edit/1">Edit</a>
         <a routerLink="/cars/delete/1">Delete</a>

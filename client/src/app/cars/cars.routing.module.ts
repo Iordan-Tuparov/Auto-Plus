@@ -6,11 +6,16 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
 import { CreateGuard } from '../core/guards/create.activate';
+import { CarResolver } from './car-detail.resolver';
 
 const routes: Routes = [
   { path: 'create', component: CreateComponent, canActivate: [CreateGuard] },
   { path: 'catalog', component: CatalogComponent },
-  { path: 'details/:id', component: DetailsComponent },
+  {
+    path: 'details/:id',
+    component: DetailsComponent,
+    resolve: { car: CarResolver },
+  },
   { path: 'edit/:id', component: EditComponent },
 ];
 

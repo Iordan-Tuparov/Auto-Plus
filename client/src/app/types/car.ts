@@ -3,7 +3,9 @@ export interface Car {
   _owner: String;
   model: String;
   year: String;
+  price: String;
   horsePower: String;
   imageUrl: String;
   information: String;
+  __v: number;
 }
