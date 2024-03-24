@@ -7,6 +7,7 @@ import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
 import { CreateGuard } from '../core/guards/create.activate';
 import { CarResolver } from './car-detail.resolver';
+import { CreatorGuard } from '../core/guards/creator.activate';
 
 const routes: Routes = [
   { path: 'create', component: CreateComponent, canActivate: [CreateGuard] },
@@ -16,7 +17,12 @@ const routes: Routes = [
     component: DetailsComponent,
     resolve: { car: CarResolver },
   },
-  { path: 'edit/:id', component: EditComponent },
+  {
+    path: 'edit/:id',
+    component: EditComponent,
+    canActivate: [CreatorGuard],
+    resolve: { car: CarResolver },
+  },
 ];
 
 @NgModule({

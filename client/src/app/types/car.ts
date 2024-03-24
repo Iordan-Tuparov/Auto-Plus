@@ -1,11 +1,11 @@
 export interface Car {
-  _id: String;
-  _owner: String;
-  model: String;
-  year: String;
-  price: String;
-  horsePower: String;
-  imageUrl: String;
-  information: String;
+  _id: string;
+  _owner: string;
+  model: string;
+  year: string;
+  price: string;
+  horsePower: string;
+  imageUrl: string;
+  information: string;
   __v: number;
 }

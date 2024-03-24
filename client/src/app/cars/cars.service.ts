@@ -33,4 +33,27 @@ export class CarsService {
   getOneCar(id: string) {
     return this.http.get<Car>(`/api/cars/get-one/${id}`);
   }
+
+  deleteCar(id: string) {
+    return this.http.delete(`/api/cars/delete-car/${id}`);
+  }
+
+  updateCar(
+    id: string,
+    model: string,
+    year: string,
+    horsePower: string,
+    imageUrl: string,
+    information: string,
+    price: string
+  ) {
+    return this.http.put<Car>(`/api/cars/update-car/${id}`, {
+      model,
+      year,
+      horsePower,
+      imageUrl,
+      information,
+      price,
+    });
+  }
 }

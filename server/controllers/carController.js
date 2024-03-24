@@ -34,4 +34,27 @@ router.get("/get-one/:id", async (req, res) => {
     }
 });
 
+router.delete("/delete-car/:id", async (req, res) => {
+    try {
+        const deletedCar = await carService.deleteCar(req.params.id);
+
+        res.status(200).json(deletedCar);
+    } catch (error) {
+        res.status(500);
+    }
+});
+
+router.put("/update-car/:id", async (req, res) => {
+    try {
+        const carId = req.params.id;
+        const carData = req.body;
+
+        const updatedCar = await carService.updateCar(carId, carData);
+
+        res.status(200).json(updatedCar);
+    } catch (error) {
+        res.status(500);
+    }
+});
+
 module.exports = router;

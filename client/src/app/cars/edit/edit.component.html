@@ -1,34 +1,91 @@
 <div class="wrapper">
   <div class="form-wrapper">
-    <form>
+    <form [formGroup]="editForm" (ngSubmit)="editCar()">
       <h1>Edit</h1>
       <div class="input-box">
-        <input type="text" placeholder="Model" />
+        <input type="text" placeholder="Model" formControlName="model" />
         <i class="fa-solid fa-car"></i>
+        <ng-container *ngIf="editForm.get('model')?.touched">
+          <p class="error" *ngIf="editForm.get('model')?.errors?.['required']">
+            Model is required!
+          </p>
+        </ng-container>
       </div>
 
       <div class="input-box">
-        <input type="text" placeholder="Year" />
+        <input type="text" placeholder="Year" formControlName="year" />
         <i class="fa-solid fa-calendar-days"></i>
+
+        <ng-container *ngIf="editForm.get('year')?.touched">
+          <p class="error" *ngIf="editForm.get('year')?.errors?.['required']">
+            Year is required!
+          </p>
+        </ng-container>
       </div>
 
       <div class="input-box">
-        <input type="text" placeholder="Horse Power" />
+        <input
+          type="text"
+          placeholder="Horse Power"
+          formControlName="horsePower"
+        />
         <i class="fa-solid fa-horse-head"></i>
+
+        <ng-container *ngIf="editForm.get('horsePower')?.touched">
+          <p
+            class="error"
+            *ngIf="editForm.get('horsePower')?.errors?.['required']"
+          >
+            Horse Power is required!
+          </p>
+        </ng-container>
       </div>
 
       <div class="input-box">
-        <input type="text" placeholder="Image URL" />
+        <input type="text" placeholder="Image URL" formControlName="imageUrl" />
         <i class="fa-solid fa-image"></i>
+        <ng-container *ngIf="editForm.get('imageUrl')?.touched">
+          <p
+            class="error"
+            *ngIf="editForm.get('imageUrl')?.errors?.['required']"
+          >
+            imageUrl is required!
+          </p>
+          <p
+            class="error"
+            *ngIf="editForm.get('imageUrl')?.errors?.['urlValidate']"
+          >
+            Url is Invalid!
+          </p>
+        </ng-container>
       </div>
 
       <div class="input-box">
-        <textarea placeholder="Information"></textarea>
+        <textarea
+          placeholder="Information"
+          formControlName="information"
+        ></textarea>
         <i class="fa-solid fa-info"></i>
+        <ng-container *ngIf="editForm.get('information')?.touched">
+          <p
+            class="error"
+            *ngIf="editForm.get('information')?.errors?.['required']"
+          >
+            Information is required!
+          </p>
+        </ng-container>
       </div>
 
-      <button type="submit" class="btn first-btn">Edit</button>
-      <button type="submit" class="btn">Cancel</button>
+      <button
+        type="submit"
+        class="btn first-btn"
+        [disabled]="this.editForm.invalid"
+        [style]="{
+          backgroundColor: this.editForm.invalid ? 'grey' : ''
+        }"
+      >
+        Edit
+      </button>
     </form>
   </div>
 </div>
