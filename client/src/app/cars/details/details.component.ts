@@ -23,12 +23,17 @@ export class DetailsComponent implements OnInit {
 
   currentCar = {} as Car;
   carCreator: Boolean = false;
+  carLiked: Boolean = false;
   modalOpened: Boolean = false;
 
   ngOnInit(): void {
     this.currentCar = this.activatedRoute.snapshot.data['car'];
 
     this.carCreator = this.userService.user?._id == this.currentCar?._owner;
+
+    this.currentCar.userLikes.forEach((x) => {
+      this.carLiked = !!(x == this.userService.user?._id);
+    });
   }
 
   openModal(): Boolean {
@@ -42,6 +47,12 @@ export class DetailsComponent implements OnInit {
   deleteCar() {
     this.carService.deleteCar(this.currentCar._id).subscribe(() => {
       this.router.navigate(['/cars/catalog']);
+    });
+  }
+
+  likeCar() {
+    this.carService.likeCar(this.currentCar._id).subscribe((car) => {
+      this.currentCar = car;
     });
   }
 }

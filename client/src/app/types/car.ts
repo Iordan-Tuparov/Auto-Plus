@@ -7,5 +7,6 @@ export interface Car {
   horsePower: string;
   imageUrl: string;
   information: string;
+  userLikes: [];
   __v: number;
 }

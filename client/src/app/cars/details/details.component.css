@@ -88,6 +88,30 @@
   cursor: pointer;
 }
 
+.button {
+  padding: 0.8em;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  border-radius: 0.5em;
+  border: none;
+  background-color: #8f0b0b;
+  cursor: pointer;
+}
+
+.button i {
+  font-size: 25px;
+  color: white;
+}
+
+.button p {
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+}
+
+.likes {color: rgb(238, 226, 226);}
+
 /* modal css */
 .modal {
   display: block;

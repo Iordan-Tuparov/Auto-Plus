@@ -53,3 +53,10 @@
   color: rgb(108, 170, 225);
   border-color: rgb(108, 170, 225);
 }
+
+.message {
+  color: white;
+  font-size: 25px;
+  text-align: center;
+  letter-spacing: 2px;
+}

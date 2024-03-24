@@ -57,4 +57,13 @@ router.put("/update-car/:id", async (req, res) => {
     }
 });
 
+router.put("/like-car/:id", async (req, res) => {
+    const carId = req.params.id;
+    const userId = req.user._id;
+
+    const likedCar = await carService.likeCar(carId, userId);
+
+    res.json(likedCar);
+});
+
 module.exports = router;

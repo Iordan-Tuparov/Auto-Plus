@@ -16,6 +16,14 @@
           <a [routerLink]="['/cars/edit', currentCar._id]">Edit</a>
           <a class="delete-btn" (click)="openModal()">Delete</a>
         </div>
+        <div *ngIf="!carCreator">
+          <button class="button" (click)="likeCar()" [disabled]="carLiked">
+            <i class="fa-solid fa-thumbs-up" *ngIf="!carLiked"></i>
+            <p>
+              Likes: <span class="likes">{{ currentCar.userLikes.length }}</span>
+            </p>
+          </button>
+        </div>
       </ng-container>
     </div>
   </div>

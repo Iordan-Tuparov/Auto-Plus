@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <div class="card-wrapper">
+  <div class="card-wrapper" *ngIf="cars">
     <div class="car-card" *ngFor="let car of cars">
       <img src="{{ car.imageUrl }}" alt="Car 1" />
       <div class="car-details">
@@ -9,5 +9,9 @@
         >
       </div>
     </div>
+  </div>
+
+  <div *ngIf="cars.length === 0">
+    <p class="message">Don't have cars Yet!</p>
   </div>
 </div>

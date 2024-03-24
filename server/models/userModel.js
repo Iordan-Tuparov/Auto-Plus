@@ -10,6 +10,12 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    carlikes: [
+        {
+            type: mongoose.Types.ObjectId,
+            ref: "car",
+        },
+    ],
 });
 
 userSchema.post("save", function (error, doc, next) {

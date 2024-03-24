@@ -56,4 +56,8 @@ export class CarsService {
       price,
     });
   }
+
+  likeCar(carId: string) {
+    return this.http.put<Car>(`/api/cars/like-car/${carId}`, {});
+  }
 }

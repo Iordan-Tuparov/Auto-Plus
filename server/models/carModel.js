@@ -23,9 +23,15 @@ const carSchema = new mongoose.Schema({
         required: true,
     },
     price: {
-        type:String,
+        type: String,
         required: true,
     },
+    userLikes: [
+        {
+            type: mongoose.Types.ObjectId,
+            ref: "user",
+        },
+    ],
     _owner: { type: mongoose.Types.ObjectId, ref: "user" },
 });
 
