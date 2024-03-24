@@ -53,6 +53,9 @@ export class DetailsComponent implements OnInit {
   likeCar() {
     this.carService.likeCar(this.currentCar._id).subscribe((car) => {
       this.currentCar = car;
+      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigate([`/cars/details/${this.currentCar._id}`]);
+      });
     });
   }
 }
