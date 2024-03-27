@@ -10,7 +10,7 @@ import { CookieService } from 'ngx-cookie-service';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthActivate implements CanActivate {
+export class CanEditActivate implements CanActivate {
   constructor(private cookieService: CookieService, private router: Router) {}
 
   canActivate(
@@ -20,10 +20,10 @@ export class AuthActivate implements CanActivate {
     const isAuthenticated = this.cookieService.check('user-session');
 
     if (isAuthenticated) {
+      return true;
+    } else {
       this.router.navigate(['/not-found']);
       return false;
-    } else {
-      return true;
     }
   }
 }

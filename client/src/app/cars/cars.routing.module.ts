@@ -8,6 +8,8 @@ import { EditComponent } from './edit/edit.component';
 import { CreateGuard } from '../core/guards/create.activate';
 import { CarResolver } from './car-detail.resolver';
 import { CreatorGuard } from '../core/guards/creator.activate';
+import { AuthActivate } from '../core/guards/auth.activate';
+import { CanEditActivate } from '../core/guards/edit.activate';
 
 const routes: Routes = [
   { path: 'create', component: CreateComponent, canActivate: [CreateGuard] },
@@ -20,7 +22,7 @@ const routes: Routes = [
   {
     path: 'edit/:id',
     component: EditComponent,
-    canActivate: [CreatorGuard],
+    canActivate: [CanEditActivate,CreatorGuard],
     resolve: { car: CarResolver },
   },
 ];
