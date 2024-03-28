@@ -29,7 +29,10 @@
 .most-liked-cards {
   width: 100%;
   min-height: 550px;
-  background-color: teal;
+  background-image: url("../../assets/images/carbonImg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .most-liked-cards .content {
@@ -40,7 +43,7 @@
 
 .most-liked-cards .content h1 {
   color: white;
-  border-bottom: 3px solid red;
+  letter-spacing: 4px;
 }
 
 .cars-wrapper {
