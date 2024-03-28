@@ -60,4 +60,8 @@ export class CarsService {
   likeCar(carId: string) {
     return this.http.put<Car>(`/api/cars/like-car/${carId}`, {});
   }
+
+  getMostLikedCars() {
+    return this.http.get<Car[]>('/api/cars/most-liked-cars');
+  }
 }

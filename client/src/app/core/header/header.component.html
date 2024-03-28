@@ -33,7 +33,7 @@
     </li>
 
     <li *ngIf="isLoggedIn">
-      <a href="#">{{ email }}</a>
+      <a routerLink="/auth/profile"><i class="fa-solid fa-user"></i>{{ email }}</a>
     </li>
 
     <li (click)="logout()" *ngIf="isLoggedIn">
