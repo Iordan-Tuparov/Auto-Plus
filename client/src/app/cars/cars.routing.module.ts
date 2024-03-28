@@ -5,11 +5,11 @@ import { CreateComponent } from './create/create.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
-import { CreateGuard } from '../core/guards/create.activate';
+import { CreateGuard } from '../guards/create.activate';
 import { CarResolver } from './car-detail.resolver';
-import { CreatorGuard } from '../core/guards/creator.activate';
-import { AuthActivate } from '../core/guards/auth.activate';
-import { CanEditActivate } from '../core/guards/edit.activate';
+import { CreatorGuard } from '../guards/creator.activate';
+import { AuthActivate } from '../guards/auth.activate';
+import { CanEditActivate } from '../guards/edit.activate';
 
 const routes: Routes = [
   { path: 'create', component: CreateComponent, canActivate: [CreateGuard] },

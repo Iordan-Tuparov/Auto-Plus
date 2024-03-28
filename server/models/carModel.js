@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 
 const carSchema = new mongoose.Schema({
+    _id: mongoose.Types.ObjectId,
     model: {
         type: String,
         required: true,
-        unique: true,
     },
     year: {
         type: String,

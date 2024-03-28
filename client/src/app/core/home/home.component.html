@@ -14,51 +14,16 @@
   </div>
 
   <div class="cars-wrapper">
-    <div class="car-card">
+    <div class="car-card" *ngFor="let car of mostLikesCars">
       <div class="card-media">
-        <img
-          src="data:image/jpeg;base64,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"
-          alt="photo"
-        />
+        <img src="{{ car.imageUrl }}" alt="photo" />
       </div>
       <div class="card-name">
-        <h4>Lambo</h4>
+        <h4>{{ car.model }}</h4>
       </div>
       <div class="card-button">
-        <p><i class="fa-solid fa-star"></i>Likes: 0</p>
-        <a routerLink="/cars/details/1">See Details!</a>
-      </div>
-    </div>
-
-    <div class="car-card">
-      <div class="card-media">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs2UarjNW5qg5uGs0j2GEwoxTGdJDZBkH9BA&usqp=CAU"
-          alt="photo"
-        />
-      </div>
-      <div class="card-name">
-        <h4>Lambo</h4>
-      </div>
-      <div class="card-button">
-        <p><i class="fa-solid fa-star"></i>Likes: 0</p>
-        <a routerLink="/details/2">See Details!</a>
-      </div>
-    </div>
-
-    <div class="car-card">
-      <div class="card-media">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmbZO2i_55kIMM6EI3s0FXvuMAkvGDdZQ_Kg&usqp=CAU"
-          alt="photo"
-        />
-      </div>
-      <div class="card-name">
-        <h4>Lambo</h4>
-      </div>
-      <div class="card-button">
-        <p><i class="fa-solid fa-star"></i>Likes: 0</p>
-        <a href="#">See Details!</a>
+        <p><i class="fa-solid fa-star"></i>Likes: {{ car.userLikes.length }}</p>
+        <a [routerLink]="['/cars/details', car._id]">See Details!</a>
       </div>
     </div>
   </div>

@@ -1,16 +1,21 @@
 const router = require("express").Router();
 
+const { default: mongoose } = require("mongoose");
 const carService = require("../services/carService");
 
 router.post("/create", async (req, res) => {
     try {
-        const carData = { ...req.body, _owner: req.user._id };
+        const carData = {
+            _id: new mongoose.Types.ObjectId(),
+            ...req.body,
+            _owner: req.user._id,
+        };
 
         const createdCar = await carService.create(carData);
 
         res.status(200).json(createdCar);
     } catch (error) {
-        res.status(400);
+        res.status(400).json(error);
     }
 });
 
@@ -64,6 +69,12 @@ router.put("/like-car/:id", async (req, res) => {
     const likedCar = await carService.likeCar(carId, userId);
 
     res.json(likedCar);
+});
+
+router.get("/most-liked-cars", async (req, res) => {
+    const cars = await carService.mostLikedCars();
+
+    res.status(200).json(cars);
 });
 
 module.exports = router;
