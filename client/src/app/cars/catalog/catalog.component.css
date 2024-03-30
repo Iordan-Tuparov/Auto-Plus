@@ -7,6 +7,12 @@
   background-position: center center;
 }
 
+.loader {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+}
+
 .card-wrapper {
   padding: 2em;
   display: flex;

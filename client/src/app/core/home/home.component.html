@@ -14,6 +14,7 @@
   </div>
 
   <div class="cars-wrapper">
+    <app-loader *ngIf="loading"/>
     <div class="car-card" *ngFor="let car of mostLikesCars">
       <div class="card-media">
         <img src="{{ car.imageUrl }}" alt="photo" />

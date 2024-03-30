@@ -21,4 +21,7 @@ exports.likeCar = async (carId, userId) => {
     return car;
 };
 
-exports.mostLikedCars = () => Car.find().sort({ "userLikes.length": -1 }).limit(3);
+exports.mostLikedCars = () =>
+    Car.find().sort({ "userLikes.length": -1 }).limit(3);
+
+exports.getUserLiked = (userId) => Car.find({ userLikes: userId });

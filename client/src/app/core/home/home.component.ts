@@ -12,10 +12,12 @@ export class HomeComponent implements OnInit {
   constructor(private carService: CarsService) {}
 
   mostLikesCars: Car[] = [];
+  loading: Boolean = true;
 
   ngOnInit(): void {
     this.carService.getMostLikedCars().subscribe((cars) => {
       this.mostLikesCars = cars;
+      this.loading = false;
     });
   }
 }

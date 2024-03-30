@@ -1,4 +1,6 @@
 <div class="wrapper">
+  <app-loader *ngIf="loading" class="loader" />
+
   <div class="card-wrapper" *ngIf="cars">
     <div class="car-card" *ngFor="let car of cars">
       <img src="{{ car.imageUrl }}" alt="Car 1" />

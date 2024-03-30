@@ -64,4 +64,8 @@ export class CarsService {
   getMostLikedCars() {
     return this.http.get<Car[]>('/api/cars/most-liked-cars');
   }
+
+  getUserLikedCars() {
+    return this.http.get<Car[]>('/api/cars/get-user-liked');
+  }
 }

@@ -11,11 +11,13 @@ export class CatalogComponent implements OnInit {
   constructor(private carsService: CarsService) {}
 
   cars: Car[] = [];
+  loading: boolean = true;
 
   ngOnInit(): void {
     this.carsService.getAllCars().subscribe({
       next: (cars) => {
         this.cars = cars;
+        this.loading = false;
       },
     });
   }

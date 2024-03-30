@@ -7,6 +7,7 @@ import { EditComponent } from './edit/edit.component';
 import { RouterModule } from '@angular/router';
 import { CarRoutingModule } from './cars.routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     DetailsComponent,
     EditComponent,
   ],
-  imports: [CommonModule, RouterModule, CarRoutingModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    CarRoutingModule,
+    ReactiveFormsModule,
+    SharedModule,
+  ],
 })
 export class CarsModule {}

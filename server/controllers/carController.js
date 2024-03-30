@@ -77,4 +77,10 @@ router.get("/most-liked-cars", async (req, res) => {
     res.status(200).json(cars);
 });
 
+router.get("/get-user-liked", async (req, res) => {
+    const cars = await carService.getUserLiked(req.user._id);
+
+    res.status(200).json(cars);
+});
+
 module.exports = router;

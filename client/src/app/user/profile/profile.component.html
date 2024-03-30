@@ -1,0 +1,30 @@
+<div class="wrapper">
+  <div class="profile-card-wrapper">
+    <div class="profile-wrapper">
+      <div class="photo"></div>
+      <div class="profile-info">
+        <p>{{ email }}</p>
+      </div>
+    </div>
+  </div>
+  <p>Liked cars</p>
+
+  <app-loader *ngIf="loading" class="loading" />
+
+  <div class="cars-wrapper" *ngIf="cars">
+    <div class="profile-car" *ngFor="let car of cars">
+      <div class="media">
+        <img src="{{ car.imageUrl }}" alt="Car-Photo" />
+      </div>
+      <div class="info">
+        <p>Model: {{ car.model }}</p>
+        <p>Likes: {{ car.userLikes.length }}</p>
+        <a [routerLink]="['/cars/details', car._id]">More Info</a>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="cars.length === 0">
+    <p class="message">Don't have cars Yet!</p>
+  </div>
+</div>
