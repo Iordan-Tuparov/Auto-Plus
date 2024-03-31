@@ -5,6 +5,11 @@
     </div>
 
     <div class="card-information">
+      <i
+        class="fa-regular fa-comment fa-beat-fade"
+        (click)="openCommentModal()"
+      ></i>
+
       <p><span>Model: </span>{{ currentCar.model }}</p>
       <p><span>Year: </span>{{ currentCar.year }}</p>
       <p><span>Information: </span>{{ currentCar.information }}</p>
@@ -14,25 +19,77 @@
       <ng-container *ngIf="isLoggedIn">
         <div class="detail-btn" *ngIf="carCreator">
           <a [routerLink]="['/cars/edit', currentCar._id]">Edit</a>
-          <a class="delete-btn" (click)="openModal()">Delete</a>
+          <a class="delete-btn" (click)="openDeleteModal()">Delete</a>
         </div>
         <div *ngIf="!carCreator">
           <button class="button" (click)="likeCar()" [disabled]="carLiked">
             <i class="fa-solid fa-thumbs-up" *ngIf="!carLiked"></i>
             <p>
-              Likes: <span class="likes">{{ currentCar.userLikes.length }}</span>
+              Likes:
+              <span class="likes">{{ currentCar.userLikes.length }}</span>
             </p>
           </button>
         </div>
       </ng-container>
     </div>
   </div>
-</div>
 
-<div id="deleteModal" class="modal" *ngIf="modalOpened">
-  <div class="modal-content">
-    <span class="close" (click)="closeModal()">&times;</span>
-    <p>Are you sure you want to delete this car?</p>
-    <button (click)="deleteCar()">Delete</button>
+  <div id="commentModal" class="modal" *ngIf="commentModal">
+    <div class="modal-content">
+      <span class="close" (click)="closeCommentModal()">&times;</span>
+      <div class="modal-header">
+        <h2>Leave a Comment</h2>
+      </div>
+      <div class="modal-body">
+        <div class="user-comments">
+          <div class="comment">
+            <p><span>Dani9988131abv.bg:</span> The best Car!</p>
+          </div>
+          <div class="comment">
+            <p><span>Dani9988131abv.bg:</span> The best Car!</p>
+            <button>Delete</button>
+          </div>
+          <div class="comment">
+            <p><span>Dani9988131abv.bg:</span> The best Car!</p>
+          </div>
+          <div class="comment">
+            <p><span>Dani9988131abv.bg:</span> The best Car!</p>
+          </div>
+          <div class="comment">
+            <p><span>Dani9988131abv.bg:</span> The best Car!</p>
+          </div>
+        </div>
+
+        <div class="textarea-div" *ngIf="isLoggedIn">
+          <form [formGroup]="commentForm" (ngSubmit)="addComment()">
+            <textarea
+              placeholder="Write your comment here..."
+              formControlName="text"
+            ></textarea>
+            <button class="cancel-btn" (click)="closeCommentModal()">
+              Cancel
+            </button>
+            <button
+              class="submit-btn"
+              *ngIf="isLoggedIn"
+              [disabled]="this.commentForm.invalid"
+              [style]="{
+                backgroundColor: this.commentForm.invalid ? 'grey' : ''
+              }"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="deleteModal" class="modal" *ngIf="deleteModal">
+    <div class="modal-content">
+      <span class="close" (click)="closeDeleteModal()">&times;</span>
+      <p>Are you sure you want to delete this car?</p>
+      <button (click)="deleteCar()">Delete</button>
+    </div>
   </div>
 </div>

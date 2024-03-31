@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Car } from 'src/app/types/car';
 import { UserService } from 'src/app/user/user.service';
 import { CarsService } from '../cars.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-details',
@@ -10,12 +11,19 @@ import { CarsService } from '../cars.service';
   styleUrls: ['./details.component.css'],
 })
 export class DetailsComponent implements OnInit {
+  commentForm: FormGroup;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private userService: UserService,
     private carService: CarsService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private fb: FormBuilder
+  ) {
+    this.commentForm = this.fb.group({
+      text: ['', [Validators.required]],
+    });
+  }
 
   get isLoggedIn() {
     return this.userService.isLoggin;
@@ -24,7 +32,8 @@ export class DetailsComponent implements OnInit {
   currentCar = {} as Car;
   carCreator: Boolean = false;
   carLiked: Boolean = false;
-  modalOpened: Boolean = false;
+  deleteModal: Boolean = false;
+  commentModal: Boolean = false;
 
   ngOnInit(): void {
     this.currentCar = this.activatedRoute.snapshot.data['car'];
@@ -36,12 +45,20 @@ export class DetailsComponent implements OnInit {
     });
   }
 
-  openModal(): Boolean {
-    return (this.modalOpened = true);
+  openCommentModal(): Boolean {
+    return (this.commentModal = true);
   }
 
-  closeModal(): Boolean {
-    return (this.modalOpened = false);
+  closeCommentModal(): Boolean {
+    return (this.commentModal = false);
+  }
+
+  openDeleteModal(): Boolean {
+    return (this.deleteModal = true);
+  }
+
+  closeDeleteModal(): Boolean {
+    return (this.deleteModal = false);
   }
 
   deleteCar() {
@@ -57,5 +74,14 @@ export class DetailsComponent implements OnInit {
         this.router.navigate([`/cars/details/${this.currentCar._id}`]);
       });
     });
+  }
+
+  addComment() {
+    if (this.commentForm.invalid) {
+      return;
+    }
+
+    console.log(this.commentForm.value);
+    
   }
 }
