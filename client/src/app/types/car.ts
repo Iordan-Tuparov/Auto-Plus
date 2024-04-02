@@ -8,5 +8,11 @@ export interface Car {
   imageUrl: string;
   information: string;
   userLikes: [];
+  comments: [
+    {
+      text: string;
+      _owner: string;
+    }
+  ];
   __v: number;
 }

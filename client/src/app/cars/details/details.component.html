@@ -42,21 +42,11 @@
       </div>
       <div class="modal-body">
         <div class="user-comments">
-          <div class="comment">
-            <p><span>Dani9988131abv.bg:</span> The best Car!</p>
-          </div>
-          <div class="comment">
-            <p><span>Dani9988131abv.bg:</span> The best Car!</p>
-            <button>Delete</button>
-          </div>
-          <div class="comment">
-            <p><span>Dani9988131abv.bg:</span> The best Car!</p>
-          </div>
-          <div class="comment">
-            <p><span>Dani9988131abv.bg:</span> The best Car!</p>
-          </div>
-          <div class="comment">
-            <p><span>Dani9988131abv.bg:</span> The best Car!</p>
+          <div class="comment" *ngFor="let comment of currentCar.comments">
+            <p>
+              <span>{{ userEmail }}:</span> {{ comment.text }}
+            </p>
+            <button *ngIf="comment._owner == userId">Delete</button>
           </div>
         </div>
 

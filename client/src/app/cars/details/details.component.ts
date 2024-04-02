@@ -29,6 +29,14 @@ export class DetailsComponent implements OnInit {
     return this.userService.isLoggin;
   }
 
+  get userEmail() {
+    return this.userService.user?.email;
+  }
+
+  get userId() {
+    return this.userService.user?._id;
+  }
+
   currentCar = {} as Car;
   carCreator: Boolean = false;
   carLiked: Boolean = false;
@@ -81,7 +89,12 @@ export class DetailsComponent implements OnInit {
       return;
     }
 
-    console.log(this.commentForm.value);
-    
+    const text = this.commentForm.get('text')?.value;
+
+    this.carService.commentCar(text, this.currentCar._id).subscribe((car) => {
+      this.currentCar = car;
+    });
+
+    this.commentForm.reset();
   }
 }

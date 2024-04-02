@@ -63,24 +63,49 @@ router.put("/update-car/:id", async (req, res) => {
 });
 
 router.put("/like-car/:id", async (req, res) => {
-    const carId = req.params.id;
-    const userId = req.user._id;
+    try {
+        const carId = req.params.id;
+        const userId = req.user._id;
 
-    const likedCar = await carService.likeCar(carId, userId);
+        const likedCar = await carService.likeCar(carId, userId);
 
-    res.json(likedCar);
+        res.json(likedCar);
+    } catch (error) {
+        res.status(400).json(error);
+    }
 });
 
 router.get("/most-liked-cars", async (req, res) => {
-    const cars = await carService.mostLikedCars();
+    try {
+        const cars = await carService.mostLikedCars();
 
-    res.status(200).json(cars);
+        res.status(200).json(cars);
+    } catch (error) {
+        res.status(400).json(error);
+    }
 });
 
 router.get("/get-user-liked", async (req, res) => {
-    const cars = await carService.getUserLiked(req.user._id);
+    try {
+        const cars = await carService.getUserLiked(req.user._id);
 
-    res.status(200).json(cars);
+        res.status(200).json(cars);
+    } catch (error) {
+        res.status(400).json(error);
+    }
+});
+
+router.put("/comment/:carId", async (req, res) => {
+    try {
+        const { text } = req.body;
+        const carId = req.params.carId;
+
+        const car = await carService.addComment(text, carId, req.user._id);
+
+        res.status(200).json(car);
+    } catch (error) {
+        res.status(404).json(error);
+    }
 });
 
 module.exports = router;

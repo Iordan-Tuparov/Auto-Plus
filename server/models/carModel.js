@@ -26,6 +26,15 @@ const carSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    comments: [
+        {
+            text: {
+                type: String,
+                required: true,
+            },
+            _owner: { type: mongoose.Types.ObjectId, ref: "user" },
+        },
+    ],
     userLikes: [
         {
             type: mongoose.Types.ObjectId,
