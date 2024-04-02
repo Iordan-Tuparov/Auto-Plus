@@ -75,4 +75,8 @@ export class CarsService {
       creatorEmail,
     });
   }
+
+  deleteComment(commentId: string, carId: string) {
+    return this.http.put<Car>(`/api/cars/comment-delete/${carId}`, { commentId });
+  }
 }

@@ -13,6 +13,7 @@ export interface Car {
       text: string;
       creatorEmail: string;
       _owner: string;
+      _id: string;
     }
   ];
   __v: number;

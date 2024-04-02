@@ -273,10 +273,16 @@
 .modal-body .user-comments .comment {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 3px;
   padding: 7px;
   width: 100%;
   border: 2px solid #ddd;
+}
+
+.modal-body .user-comments .comment p span > i {
+  font-size: 18px;
+  padding-right: 4px;
 }
 
 .modal-body .user-comments .comment p span {

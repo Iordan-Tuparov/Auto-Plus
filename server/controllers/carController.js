@@ -113,4 +113,17 @@ router.put("/comment/:carId", async (req, res) => {
     }
 });
 
+router.put("/comment-delete/:id", async (req, res) => {
+    try {
+        const { commentId } = req.body;
+        const carId = req.params.id;
+
+        const car = await carService.deleteComment(commentId, carId);
+
+        res.status(200).json(car);
+    } catch (error) {
+        res.status(404).json(error);
+    }
+});
+
 module.exports = router;

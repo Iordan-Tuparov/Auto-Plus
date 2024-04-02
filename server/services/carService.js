@@ -35,3 +35,13 @@ exports.addComment = async (text, creatorEmail, carId, ownerId) => {
 
     return car;
 };
+
+exports.deleteComment = async (commentId, carId) => {
+    const car = await Car.findById(carId);
+
+    car.comments = car.comments.filter((x) => x._id != commentId);
+
+    await car.save();
+
+    return car;
+};

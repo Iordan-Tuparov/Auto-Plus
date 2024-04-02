@@ -99,4 +99,12 @@ export class DetailsComponent implements OnInit {
 
     this.commentForm.reset();
   }
+
+  deleteComment(commentId: string) {
+    this.carService
+      .deleteComment(commentId, this.currentCar._id)
+      .subscribe((car) => {
+        this.currentCar = car;
+      });
+  }
 }
