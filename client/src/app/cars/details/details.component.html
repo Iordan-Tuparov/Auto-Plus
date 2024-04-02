@@ -44,7 +44,7 @@
         <div class="user-comments">
           <div class="comment" *ngFor="let comment of currentCar.comments">
             <p>
-              <span>{{ userEmail }}:</span> {{ comment.text }}
+              <span>{{ comment.creatorEmail }}:</span> {{ comment.text }}
             </p>
             <button *ngIf="comment._owner == userId">Delete</button>
           </div>

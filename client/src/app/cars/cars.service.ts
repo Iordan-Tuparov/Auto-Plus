@@ -69,7 +69,10 @@ export class CarsService {
     return this.http.get<Car[]>('/api/cars/get-user-liked');
   }
 
-  commentCar(text: string, carId: string) {
-    return this.http.put<Car>(`/api/cars/comment/${carId}`, { text });
+  commentCar(text: string, creatorEmail: string, carId: string) {
+    return this.http.put<Car>(`/api/cars/comment/${carId}`, {
+      text,
+      creatorEmail,
+    });
   }
 }

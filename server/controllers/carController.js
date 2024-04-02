@@ -97,10 +97,15 @@ router.get("/get-user-liked", async (req, res) => {
 
 router.put("/comment/:carId", async (req, res) => {
     try {
-        const { text } = req.body;
+        const { text, creatorEmail } = req.body;
         const carId = req.params.carId;
 
-        const car = await carService.addComment(text, carId, req.user._id);
+        const car = await carService.addComment(
+            text,
+            creatorEmail,
+            carId,
+            req.user._id
+        );
 
         res.status(200).json(car);
     } catch (error) {

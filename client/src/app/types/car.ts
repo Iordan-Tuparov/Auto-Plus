@@ -11,6 +11,7 @@ export interface Car {
   comments: [
     {
       text: string;
+      creatorEmail: string;
       _owner: string;
     }
   ];

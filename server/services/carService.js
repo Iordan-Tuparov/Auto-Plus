@@ -26,10 +26,10 @@ exports.mostLikedCars = () =>
 
 exports.getUserLiked = (userId) => Car.find({ userLikes: userId });
 
-exports.addComment = async (text, carId, ownerId) => {
+exports.addComment = async (text, creatorEmail, carId, ownerId) => {
     const car = await Car.findById(carId);
 
-    car.comments.push({ text, _owner: ownerId });
+    car.comments.push({ text, creatorEmail, _owner: ownerId });
 
     await car.save();
 

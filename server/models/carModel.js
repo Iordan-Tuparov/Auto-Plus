@@ -32,6 +32,10 @@ const carSchema = new mongoose.Schema({
                 type: String,
                 required: true,
             },
+            creatorEmail: {
+                type: String,
+                required: true,
+            },
             _owner: { type: mongoose.Types.ObjectId, ref: "user" },
         },
     ],

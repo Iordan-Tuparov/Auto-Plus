@@ -91,9 +91,11 @@ export class DetailsComponent implements OnInit {
 
     const text = this.commentForm.get('text')?.value;
 
-    this.carService.commentCar(text, this.currentCar._id).subscribe((car) => {
-      this.currentCar = car;
-    });
+    this.carService
+      .commentCar(text, this.userEmail!, this.currentCar._id)
+      .subscribe((car) => {
+        this.currentCar = car;
+      });
 
     this.commentForm.reset();
   }
