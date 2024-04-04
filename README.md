@@ -1,6 +1,6 @@
 # Auto Plus
 
-This [project](https://github.com/Iordan-Tuparov/Auto-Plus) was created by [Iordan Typarov](https://github.com/Iordan-Tuparov) for the purposes of React Softuni Course, Nov-Deb 2023.
+This [project](https://github.com/Iordan-Tuparov/Auto-Plus) was created by [Iordan Typarov](https://github.com/Iordan-Tuparov) for the purposes of React Softuni Course, 2024.
 
 ## Public part
 
@@ -33,3 +33,18 @@ This part of the platform is designed for non-Registered users. These users can 
     A button who liking particularly selected car.(only non-creaters can like)
 -   Comments ->
     Logged in user can comment on all cars. Creator of comment can delete his comment.
+
+## Available Scripts
+
+In client directory, you can run:
+
+### `npm install`
+### `npm start`
+
+In server directory, you can run:
+
+### `npm install`
+### `npm start`
+
+Runs the app in development mode.\
+Open [http://localhost:4200](http://localhost:4200)
