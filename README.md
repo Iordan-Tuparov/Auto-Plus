@@ -1,6 +1,6 @@
 # Auto Plus
 
-This [project](https://github.com/Iordan-Tuparov/Auto-Plus) was created by [Iordan Typarov](https://github.com/Iordan-Tuparov) for the purposes of React Softuni Course, 2024.
+This [project](https://github.com/Iordan-Tuparov/Auto-Plus) was created by [Iordan Typarov](https://github.com/Iordan-Tuparov) for the purposes of Angular Softuni Course, 2024.
 
 ## Public part
 
